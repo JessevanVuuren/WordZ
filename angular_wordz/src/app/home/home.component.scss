@@ -43,7 +43,42 @@
   display: flex;
   justify-content: space-between;
 
+
+  .login_input {
+    color: white;
+    background-color: var(--light_back);
+    border: none;
+    padding: 10px 10px 10px 50px;
+    border-radius: 4px;
+    width: 95.5%;
+    font-size: 20px;
+    margin: 7px 0;
   
+    &::placeholder {
+      color: var(--input_text);
+    }
+  }
+  
+  .input_div {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 40px;
+      width: 40px;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  .search::before {
+    background-position: 9.5px 15px;
+    background-size: 28px;
+    background-image: url(../../assets/svg/search.svg);
+  }
+  
+
+
 
   .add_list {
     div {
