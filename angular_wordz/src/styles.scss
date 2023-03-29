@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --background: #1E212D;
+    --light_back:  #333747;
+    --light_back_hover:  #3e4358;
+    --accent: #788BD6;
+    --input_text:#C4C8D8;
+    --input_text_hover:#e0e2ed;
+
+    --bad:#E60158;
+    --good:#14F06F;
+    --medium:#F0A727;
+}
+html, body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+	font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+}

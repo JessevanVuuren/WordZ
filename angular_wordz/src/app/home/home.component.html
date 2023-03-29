@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="main">
+    <div class="mainBody">
+      <h1 class="welcome_text">Welcome back, {{ user_model?.name }}</h1>
+
+      <!-- search -->
+      <div class="search_holder">
+
+        <div class="search_bar">
+
+        </div>
+
+        <div class="add_list" (click)="add_list()">
+          <div>
+            <h1>+</h1>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div>
+        <div class="header_holder">
+          <div class="header_text">
+          <h2>Name</h2>
+          <h2>Date</h2>
+          <h2>Words</h2>
+        </div>
+      </div>
+
+      <div *ngFor="let item of word_list">
+        <app-word-list-item [item]="item" />
+      </div>
+
+
+    </div>
+  </div>
+</div>

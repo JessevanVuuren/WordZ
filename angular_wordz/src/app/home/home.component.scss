@@ -1,0 +1,71 @@
+@mixin make_unselect() {
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 10vh;
+}
+
+.main {
+  width: 80%;
+  max-width: 900px;
+}
+
+.welcome_text {
+  color: white;
+  font-weight: 400;
+}
+
+.header_holder {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header_text {
+  width: 100%;
+  color: white;
+  justify-content: space-between;
+  display: inline-grid;
+  grid-template-columns: 1fr 0.5fr .2fr;
+
+
+  h2 {
+    margin-left: 16px;
+  }
+}
+
+.search_holder {
+  display: flex;
+  justify-content: space-between;
+
+  
+
+  .add_list {
+    div {
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 45px;
+      width: 45px;
+      background-color: var(--input_text);
+      h1 {
+        font-weight: 400;
+        font-size: 50px;
+        color: var(--accent);
+        margin: 0 0 10px 0;
+        padding: 0;
+        @include make_unselect();
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: var(--input_text_hover);
+      }
+    }
+  }
+}

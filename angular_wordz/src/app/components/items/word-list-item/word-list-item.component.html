@@ -1,0 +1,13 @@
+<div class="word_list_items" *ngIf="item">
+  <div class="item item_info">
+    <div class="flag_img">
+      <img src="https://flagcdn.com/w80/{{ item.to_language.toLowerCase() }}.png" alt="">
+    </div>
+    <div class="info_holder">
+      <div class="item_name">{{ item.name }}</div>
+      <div class="item_description">{{ item.description }}</div>
+    </div>
+  </div>
+  <div class="item item_date">{{ item.created_at | datum }}</div>
+  <div class="item item_amount">{{ item.amount }}</div>
+</div>

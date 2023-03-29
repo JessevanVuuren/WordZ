@@ -1,0 +1,87 @@
+<div class="main">
+  <div class="container">
+    <div class="login">
+
+      <div class="spinner" *ngIf="state=='validate_key'">
+        <div class="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+
+
+      <div *ngIf="state=='invalid_key' || state == 'init'">
+
+
+        <div class="form_holder" *ngIf="login_mode">
+          <h1 class="login_text">Login
+          </h1>
+          <form [formGroup]="loginForm" (ngSubmit)="login_user()">
+            <div class="input_holder">
+              <div class="input_div email">
+                <input class="login_input" email formControlName="username" placeholder="email">
+                <span class="invalid_text" *ngIf="loginForm.get('username')?.hasError('email') &&( loginForm.get('username')?.touched)">invalid email</span>
+                <span class="invalid_text" *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched">email is required</span>
+              </div>
+
+              <div class="input_div password">
+                <input class="login_input" type="password" formControlName="password" placeholder="password">
+                <span class="invalid_text" *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">password is to short</span>
+                <span class="invalid_text" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">password is required</span>
+              </div>
+            </div>
+
+            <span class="invalid_text" *ngIf="invalid_cred">{{ invalid_cred }}</span>
+
+            <div class="buttons">
+              <button (click)="change_form()" type="button" class="form_butt change_form">register</button>
+              <button class="form_butt activate_form">login</button>
+            </div>
+          </form>
+        </div>
+
+
+        <div class="form_holder" *ngIf="!login_mode">
+          <h1 class="login_text">
+            Register</h1>
+          <form [formGroup]="registerForm" (ngSubmit)="register_user()">
+            <div class="input_holder">
+              <div class="input_div username">
+                <input class="login_input" formControlName="name" placeholder="name">
+                <span class="invalid_text" *ngIf="registerForm.get('name')?.hasError('required') && registerForm.get('name')?.touched">name is required</span>
+              </div>
+
+              <div class="input_div email">
+                <input class="login_input" formControlName="email" placeholder="email">
+                <span class="invalid_text" *ngIf="registerForm.get('email')?.hasError('email') &&( registerForm.get('email')?.touched)">invalid email</span>
+                <span class="invalid_text" *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched">email is required</span>
+              </div>
+
+              <div class="input_div password">
+                <input class="login_input" type="password" formControlName="password" placeholder="password">
+                <span class="invalid_text" *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched">password is to short</span>
+                <span class="invalid_text" *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">password is required</span>
+              </div>
+
+              <div class="input_div password">
+                <input class="login_input" type="password" formControlName="rePassword" placeholder="confirm password">
+                <span class="invalid_text" *ngIf="registerForm.get('rePassword')?.hasError('minlength') && registerForm.get('rePassword')?.touched">password is to short</span>
+                <span class="invalid_text" *ngIf="registerForm.get('rePassword')?.hasError('required') && registerForm.get('rePassword')?.touched">password is required</span>
+              </div>
+            </div>
+
+            <span class="invalid_text" *ngIf="invalid_cred">{{ invalid_cred }}</span>
+            <div class="buttons">
+              <button (click)="change_form()" type="button" class="form_butt change_form">login</button>
+              <button class="form_butt activate_form">Let's go!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
