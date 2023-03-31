@@ -8,7 +8,7 @@
 
         <div class="search_bar">
           <div class="input_div search">
-            <input class="login_input" placeholder="Search">
+            <input class="login_input" placeholder="Search" (keyup)="searchEvent($event)">
           </div>
         </div>
 
@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <div *ngFor="let item of word_list">
+      <div *ngFor="let item of word_list | searchFilter: searchText">
         <app-word-list-item [item]="item" />
       </div>
 

@@ -28,7 +28,7 @@
 
               <div class="input_div password">
                 <input class="login_input" type="password" formControlName="password" placeholder="password">
-                <span class="invalid_text" *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">password is to short</span>
+                <span class="invalid_text" *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">password is too short</span>
                 <span class="invalid_text" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">password is required</span>
               </div>
             </div>
@@ -61,13 +61,13 @@
 
               <div class="input_div password">
                 <input class="login_input" type="password" formControlName="password" placeholder="password">
-                <span class="invalid_text" *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched">password is to short</span>
+                <span class="invalid_text" *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched">password is too short</span>
                 <span class="invalid_text" *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">password is required</span>
               </div>
 
               <div class="input_div password">
                 <input class="login_input" type="password" formControlName="rePassword" placeholder="confirm password">
-                <span class="invalid_text" *ngIf="registerForm.get('rePassword')?.hasError('minlength') && registerForm.get('rePassword')?.touched">password is to short</span>
+                <span class="invalid_text" *ngIf="registerForm.get('rePassword')?.hasError('minlength') && registerForm.get('rePassword')?.touched">password is too short</span>
                 <span class="invalid_text" *ngIf="registerForm.get('rePassword')?.hasError('required') && registerForm.get('rePassword')?.touched">password is required</span>
               </div>
             </div>

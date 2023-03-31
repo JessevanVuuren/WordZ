@@ -8,20 +8,13 @@ import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
-  
-  { // no login debug mode only
-    path: "", component: HomeComponent, children: [
-      { path: "create", component: CreateComponent },
-      { path: "test", component: TestComponent }
-    ]
-  },
-  
-  // {
-  //   path: "", component: HomeComponent, canActivate: [canActivate], canActivateChild: [canActivateChild], children: [
-  //     { path: "create", component: CreateComponent },
-  //     { path: "test", component: TestComponent }
-  //   ]
-  // },
+
+  // { path: "", component: HomeComponent },
+
+  { path: "", component: HomeComponent, canActivate: [canActivate] },
+  { path: "test", component: TestComponent, canActivate: [canActivate] },
+  { path: "create", component: CreateComponent, canActivate: [canActivate] },
+
   { path: "**", redirectTo: "login" }
 ];
 

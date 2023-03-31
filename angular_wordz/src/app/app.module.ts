@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatumPipe } from './pipe/datum.pipe';
 import { WordListItemComponent } from './components/items/word-list-item/word-list-item.component';
+import { SearchFilterPipe } from './pipe/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { WordListItemComponent } from './components/items/word-list-item/word-li
     TestComponent,
     DatumPipe,
     WordListItemComponent,
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,
