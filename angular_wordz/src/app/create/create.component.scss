@@ -15,7 +15,115 @@
   max-width: 900px;
 }
 
+.title_text {
+  font-weight: 400;
+  margin: 0px 0px 10px 0px;
+  font-size: 50px;
+  color: white;
+}
 
-h1 {
-    color: white;
+.input_holder {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list_info_input {
+  color: white;
+  background-color: var(--light_back);
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 20px;
+
+  &::placeholder {
+    color: var(--input_text);
+  }
+}
+
+.list_info_witdh {
+  width: 47%;
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .form_butt {
+    margin: 5px 0 10px 0;
+    font-size: 20px;
+    border: none;
+    background-color: var(--background);
+    color: var(--accent);
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+.language_info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.dropdown {
+  width: 45%;
+}
+
+.switchLand {
+  display: flex;
+  align-self: center;
+  color: var(--accent);
+  height: 30px;
+}
+
+
+.words {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.input_line {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.words_number {
+  width: 0px;
+  position: relative;
+  right: 30px;
+  color: var(--accent);
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.words_input {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.words_width {
+  width: 42.8%;
+}
+
+.add_words {
+  position: relative;
+  left: 10px;
+  width: 0px;
+  
+
+  .add_words_button {
+    padding: 5px 33px 6px 3px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: var(--light_back);
+    }
+  }
 }

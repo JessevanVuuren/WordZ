@@ -9,11 +9,11 @@ import { TestComponent } from './test/test.component';
 const routes: Routes = [
   { path: "login", component: LoginComponent },
 
-  // { path: "", component: HomeComponent },
+  { path: "", component: CreateComponent },
 
-  { path: "", component: HomeComponent, canActivate: [canActivate] },
-  { path: "test", component: TestComponent, canActivate: [canActivate] },
-  { path: "create", component: CreateComponent, canActivate: [canActivate] },
+  // { path: "", component: HomeComponent, canActivate: [canActivate] },
+  // { path: "test", component: TestComponent, canActivate: [canActivate] },
+  // { path: "create", component: CreateComponent, canActivate: [canActivate] },
 
   { path: "**", redirectTo: "login" }
 ];

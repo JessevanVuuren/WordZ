@@ -1,0 +1,24 @@
+<div class="dropdown" (click)="dropdown1 = true" (clickOutside)="close()">
+  <div class="dropdown_info_holder">
+
+    <div class="dropdown_info">
+
+      <img *ngIf="!land_key" class="word_icon" src="../../assets/svg/world.svg" alt="">
+      <img *ngIf="land_key" class="flag" src="https://hatscripts.github.io/circle-flags/flags/{{ land_key.toLowerCase() }}.svg" alt="">
+      <span class="dropdown_text">{{ language }}</span>
+    </div>
+
+    <div class="selectMore_holder">
+      <img class="selectMore" src="../../assets/svg/selectMore.svg" alt="">
+    </div>
+  </div>
+
+  <div class="dropdown_list" *ngIf="dropdown1">
+    <div class="dropdown_input_holder">
+      <input class="dropdown_input" autofocus (keyup)="searchEvent($event)" placeholder="Search" />
+    </div>
+    <div class="dropdown_item" *ngFor="let land of land_list | searchFilter: search; let i = index">
+      <p class="dropdown_item_text" (click)="select_land(land)">{{ land.name }}</p>
+    </div>
+  </div>
+</div>

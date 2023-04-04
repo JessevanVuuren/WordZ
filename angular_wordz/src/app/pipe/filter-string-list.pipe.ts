@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'searchFilter'
+  name: 'filterStringList'
 })
-export class SearchFilterPipe implements PipeTransform {
+export class FilterStringListPipe implements PipeTransform {
 
   transform(items: any[], filter: string): any {
     if (!items) {
@@ -14,7 +14,8 @@ export class SearchFilterPipe implements PipeTransform {
       return items
     }
 
-    return items.filter(e => e.name.toLowerCase().includes(filter.toLowerCase()))
+    return items.filter(e => e.toLowerCase().includes(filter.toLowerCase()))
   }
+
 
 }

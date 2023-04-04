@@ -30,7 +30,6 @@ class WordListController extends Controller
     {
         $request->validate([
             "name" => "string|required",
-            "description" => "string|required",
             "to_language" => "string|required",
             "from_language" => "string|required"
         ]);
@@ -51,7 +50,8 @@ class WordListController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $word_list = WordList::where([["user_id", Auth::user()->id], ["id", $id]])->get()->first();
+        return $word_list;
     }
 
     /**

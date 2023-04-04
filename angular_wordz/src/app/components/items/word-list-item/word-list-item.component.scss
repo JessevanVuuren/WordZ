@@ -41,8 +41,9 @@
 }
 
 .flag_img {
+  display: flex;
+  justify-content: center;
   border-radius: 25px;
-  display: inline-block;
   overflow: hidden;
   width: 40px;
   min-width: 40px;

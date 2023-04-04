@@ -3,7 +3,8 @@ export interface WordList {
   user_id:       number;
   name:          string;
   description:   string;
-  language:      string;
+  from_language: string;
+  to_language:   string;
   created_at:    string;
   updated_at:    string;
   amount:        number;

@@ -4,6 +4,7 @@
     --light_back:  #333747;
     --light_back_hover:  #3e4358;
     --accent: #788BD6;
+    --accent_hover: #a5b2e5;
     --input_text:#C4C8D8;
     --input_text_hover:#e0e2ed;
 
@@ -18,3 +19,39 @@ html, body {
     background-color: var(--background);
 	font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
 }
+
+.line_dev {
+    height: 1px;
+    background-color: var(--accent);
+    width: 100%;
+}
+
+.blue_dot {
+  color: var(--accent);
+}
+
+.input_valid {
+  border: 1px var(--background) solid !important;
+
+}
+
+.input_invalid {
+  border: 1px var(--bad) solid !important;
+  border-radius: 4px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent); 
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent_hover)
+  }

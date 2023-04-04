@@ -1,5 +1,7 @@
 
-INSERT INTO word_lists (user_id, name, description, language, created_at, updated_at) VALUES (1, "German beginners", "Simple german for beginners", "DE", NOW(), NOW());
+INSERT INTO word_lists (user_id, name, description, to_language, from_language, created_at, updated_at) VALUES (1, "German beginners", "Simple german for beginners", "DE", "US", NOW(), NOW());
+INSERT INTO word_lists (user_id, name, description, to_language, from_language, created_at, updated_at) VALUES (1, "Test", "simple test for testing", "NL", "NL", NOW(), NOW());
+INSERT INTO word_lists (user_id, name, description, to_language, from_language, created_at, updated_at) VALUES (1, "America", "nice flag tho", "US", "UK", NOW(), NOW());
 
 
 INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (1, "Guten Tag","Good day", NOW(), NOW());
@@ -22,3 +24,18 @@ INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at)
 INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (1, "Freitag","Friday", NOW(), NOW());
 INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (1, "Samstag","Saturday", NOW(), NOW());
 INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (1, "Sonntag","Sunday", NOW(), NOW());
+
+
+INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (2, "cool","cool", NOW(), NOW());
+INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (2, "cool","cool", NOW(), NOW());
+INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (2, "cool","cool", NOW(), NOW());
+INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (2, "cool","cool", NOW(), NOW());
+
+
+
+INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (3, "cool","cool", NOW(), NOW());
+INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (3, "cool","cool", NOW(), NOW());
+INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (3, "cool","cool", NOW(), NOW());
+INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (3, "cool","cool", NOW(), NOW());
+INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (3, "cool","cool", NOW(), NOW());
+INSERT INTO word_items (word_list_id, word, translation, created_at, updated_at) VALUES (3, "cool","cool", NOW(), NOW());

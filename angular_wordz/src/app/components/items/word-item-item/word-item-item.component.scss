@@ -1,0 +1,64 @@
+.input_line {
+  display: flex;
+  align-items: center;
+	margin: 2px -7px;
+	border-radius: 4px;
+
+  &:hover {
+    background-color: var(--light_back);
+  }
+}
+
+.words_input {
+	padding: 5px 7px;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.words_number {
+  width: 0px;
+  position: relative;
+  right: 30px;
+  color: var(--accent);
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.switchLand {
+  display: flex;
+  align-self: center;
+  color: var(--accent);
+  height: 30px;
+}
+
+.edit_word {
+	display: none;
+
+  position: relative;
+  // display: flex;
+  left: 10px;
+  width: 0px;
+
+  .edit_word_buttons {
+    border-radius: 4px;
+
+    &:hover {
+      background-color: var(--light_back);
+    }
+  }
+}
+
+.word_holder {
+  width: 45%;
+
+  span {
+    color: white;
+    font-size: 20px;
+  }
+}
+
+.words_input:hover + .edit_word {
+	display: flex;
+}

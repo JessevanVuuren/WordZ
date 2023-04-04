@@ -1,5 +1,57 @@
 <div class="container">
   <div class="main">
-    <h1>create</h1>
+    <h1 class="title_text">{{list_is_made ? "Exit list" : "Create new list" }}</h1>
+
+
+    <div class="list_info">
+      <form [formGroup]="list_info" (ngSubmit)="save_list_info()">
+        <div class="input_holder">
+          <input class="list_info_input list_info_witdh" [ngClass]="list_info.get('list_name')?.hasError('required') && list_info.get('list_name')?.touched ? 'input_invalid' : 'input_valid'" formControlName="list_name" placeholder="Name">
+          <input class="list_info_input list_info_witdh" formControlName="description" placeholder="Description">
+        </div>
+
+        <div class="language_info">
+          <app-dropdown class="dropdown" [set_land_by_key]="set_land1_by_key.asObservable()" [ngClass]="land1_valid ? 'input_valid' : 'input_invalid'" [land_list]="land_list" (selected)="dropdown1_index($event)" [set_land]="set_land1.asObservable()" />
+          <img class="switchLand" (click)="switch_lands()" src="../../assets/svg/switch.svg" alt="">
+          <app-dropdown class="dropdown" [set_land_by_key]="set_land2_by_key.asObservable()" [ngClass]="land2_valid ? 'input_valid' : 'input_invalid'" [land_list]="land_list" (selected)="dropdown2_index($event)" [set_land]="set_land2" />
+        </div>
+
+        <div class="buttons">
+          <button (click)="delete_list()" type="button" class="form_butt change_form">delete</button>
+          <button class="form_butt activate_form">save</button>
+        </div>
+      </form>
+
+
+
+      <div class="line_dev"></div>
+
+      <div *ngIf="list_is_made">
+
+        <div class="words">
+
+          <div *ngFor="let word of word_list; let index = index">
+            <app-word-item-item class="word_item_item" [word]="word" [index]="index" />
+          </div>
+
+          <div class="input_line">
+            <span class="words_number">{{ word_list.length + 1 }}</span>
+
+            <form class="words_input" [formGroup]="new_word">
+              <input formControlName="word" class="words_word words_width list_info_input" [ngClass]="new_word.get('word')?.hasError('required') && new_word.get('word')?.touched ? 'input_invalid' : 'input_valid'" type="text" placeholder="word">
+              <img class="switchLand" src="../../assets/svg/arrowRight.svg" alt="">
+              <input formControlName="translation" class="words_mean words_width list_info_input" (keyup.enter)="add_new_word()" [ngClass]="new_word.get('translation')?.hasError('required') && new_word.get('translation')?.touched ? 'input_invalid' : 'input_valid'" type="text" placeholder="translation">
+            </form>
+
+            <div class="add_words">
+              <div class="add_words_button" (click)="add_new_word()">
+                <img class="switchLand" src="../../assets/svg/check.svg" alt="">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

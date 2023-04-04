@@ -12,6 +12,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatumPipe } from './pipe/datum.pipe';
 import { WordListItemComponent } from './components/items/word-list-item/word-list-item.component';
 import { SearchFilterPipe } from './pipe/search-filter.pipe';
+import { ClickOutsideDirective } from './directive/clickOutside.directive';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { FilterStringListPipe } from './pipe/filter-string-list.pipe';
+import { WordItemItemComponent } from './components/items/word-item-item/word-item-item.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { SearchFilterPipe } from './pipe/search-filter.pipe';
     DatumPipe,
     WordListItemComponent,
     SearchFilterPipe,
+    ClickOutsideDirective,
+    DropdownComponent,
+    FilterStringListPipe,
+    WordItemItemComponent,
   ],
   imports: [
     BrowserModule,
