@@ -6,7 +6,6 @@
 
 .word_list_items {
   @include make_unselect();
-  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-box-shadow: 8px 9px 19px -10px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: 8px 9px 19px -10px rgba(0, 0, 0, 0.8);
   box-shadow: 8px 9px 19px -10px rgba(0, 0, 0, 0.8);

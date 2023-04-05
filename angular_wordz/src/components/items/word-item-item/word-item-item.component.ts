@@ -9,5 +9,4 @@ import { WordItem } from 'src/models/wordItem.model';
 export class WordItemItemComponent {
   @Input("word") word?:WordItem
   @Input("index") index = 0
-
 }

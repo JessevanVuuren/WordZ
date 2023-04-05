@@ -1,4 +1,4 @@
-<div class="word_list_items" *ngIf="item">
+<div class="word_list_items" *ngIf="item" (click)="to_list()">
   <div class="item item_info">
     <div class="flag_img">
       <img src="https://flagcdn.com/w80/{{ item.to_language.toLowerCase() }}.png" alt="">
