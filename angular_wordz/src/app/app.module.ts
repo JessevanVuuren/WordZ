@@ -16,6 +16,7 @@ import { ClickOutsideDirective } from '../directive/clickOutside.directive';
 import { DropdownComponent } from '../components/dropdown/dropdown.component';
 import { FilterStringListPipe } from '../pipe/filter-string-list.pipe';
 import { WordItemItemComponent } from '../components/items/word-item-item/word-item-item.component';
+import { LoadingComponent } from '../components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { WordItemItemComponent } from '../components/items/word-item-item/word-i
     DropdownComponent,
     FilterStringListPipe,
     WordItemItemComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

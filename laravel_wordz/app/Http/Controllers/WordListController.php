@@ -89,7 +89,7 @@ class WordListController extends Controller
         }
 
         $list_to_delete->delete();
-        return response(["message" => "Word list deleted"], 200);
+        return response($list_to_delete, 200);
     }
 
     private function isNotAuth($id)

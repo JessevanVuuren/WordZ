@@ -1,8 +1,7 @@
 <div class="input_line">
   <span class="words_number">{{ index + 1 }}</span>
 
-  <div class="words_input">
-
+  <div class="words_input" *ngIf="!is_edit_word">
     <div class="word_holder">
       <span>{{ word?.word }}</span>
     </div>
@@ -12,13 +11,29 @@
     </div>
   </div>
 
-  <div class="edit_word">
-    <div class="edit_word_buttons">
-      <img src="../../assets/svg/edit.svg" alt="">
+  <form class="words_input" *ngIf="is_edit_word" [formGroup]="edit_word_form" >
+
+    <div class="word_holder">
+      <input class="input_value input_word" #wordInput type="text" formControlName="word" [ngClass]="edit_word_form.get('word')?.hasError('required') && edit_word_form.get('word')?.touched ? 'input_invalid' : 'input_valid'">
     </div>
-    <div class="edit_word_buttons">
-      <img src="../../assets/svg/delete.svg" alt="">
+    
+    <div class="word_holder">
+      <input class="input_value input_translation" type="text" formControlName="translation" [ngClass]="edit_word_form.get('translation')?.hasError('required') && edit_word_form.get('translation')?.touched ? 'input_invalid' : 'input_valid'">
     </div>
 
+  </form>
+
+  <div class="edit_word">
+    <div class="edit_word_buttons" (click)="edit_word()" *ngIf="!is_edit_word">
+      <img src="../../assets/svg/edit.svg" alt="">
+    </div>
+    <div class="edit_word_buttons" (click)="save_word()" [tabindex]="is_edit_word ? 0 : -1" *ngIf="is_edit_word">
+      <img src="../../assets/svg/check.svg" alt="">
+    </div>
+
+    <div class="edit_word_buttons" (click)="del_word()">
+      <img src="../../assets/svg/delete.svg" alt="">
+    </div>
   </div>
+
 </div>

@@ -2,16 +2,12 @@
   align-items: center;
   border-radius: 4px;
   margin: 2px -7px;
-  display: flex;
-
-  &:hover {
-    background-color: var(--light_back);
-  }
+  display: flex
 }
 
 .words_input {
   justify-content: space-between;
-  padding: 5px 7px;
+  padding: 0px 7px;
   display: flex;
   width: 100%;
 }
@@ -54,5 +50,19 @@
   span {
     font-size: 20px;
     color: white;
+  }
+}
+
+.input_value {
+  width: 95%;
+  color: white;
+  background-color: var(--light_back);
+  border: none;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 20px;
+
+  &::placeholder {
+    color: var(--input_text);
   }
 }

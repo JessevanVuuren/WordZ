@@ -32,8 +32,8 @@ class WordItemController extends Controller
             return response(["message" => "List does not exist"], 404);
         }
 
-        WordItem::create($request->all());
-        return "valid";
+        $newWord = WordItem::create($request->all());
+        return $newWord;
 
     }
 
@@ -68,7 +68,7 @@ class WordItemController extends Controller
         }
 
         $word_if_exists->fill($request->all())->save();
-        return response(["message"=>"Word updated", "payload" => $word_if_exists], 200);
+        return response($word_if_exists, 200);
 
     }
 
