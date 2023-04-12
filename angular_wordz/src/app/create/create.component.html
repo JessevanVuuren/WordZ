@@ -1,10 +1,43 @@
 <div class="container">
   <div class="main">
-    <h1 class="title_text">{{list_is_made ? "Edit list" : "Create new list" }}</h1>
+    <h1 class="title_text" *ngIf="!view_list">{{list_is_made ? "Edit list" : "Create new list" }}</h1>
 
+
+    <div *ngIf="view_list && current_word_list" class="view_list">
+      <div class="info_buttons_holder">
+        <div>
+          <h1 class="title_text">{{ current_word_list.name }}</h1>
+          <h4 class="desciption_text">{{ current_word_list.description }}</h4>
+        </div>
+
+        <div class="info_buttons">
+          <div class="list_do_button test_button">
+            <span (click)="go_to_test()">TEST ME</span>
+          </div>
+          <div class="list_do_button edit_button">
+            <span (click)="switch_edit_mode()">EDIT</span>
+          </div>
+          
+        </div>
+      </div>
+      <div class="land_choice">
+        <div class="land_choice_form">
+          <div class="view_land_info">
+            <img class="view_land_flag" src="https://hatscripts.github.io/circle-flags/flags/{{ current_word_list.from_language.toLowerCase() }}.svg" alt="">
+            <span class="view_land_name">{{ land1.name }}</span>
+          </div>
+        </div>
+        <div class="land_choice_form">
+          <div class="view_land_info">
+            <img class="view_land_flag" src="https://hatscripts.github.io/circle-flags/flags/{{ current_word_list.to_language.toLowerCase() }}.svg" alt="">
+            <span class="view_land_name">{{ land2.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="list_info">
-      <form [formGroup]="list_info" (ngSubmit)="save_or_update_list_info()">
+      <form [formGroup]="list_info" (ngSubmit)="save_or_update_list_info()" *ngIf="!view_list">
         <div class="input_holder">
           <input class="list_info_input list_info_witdh" [ngClass]="list_info.get('list_name')?.hasError('required') && list_info.get('list_name')?.touched ? 'input_invalid' : 'input_valid'" formControlName="list_name" placeholder="Name">
           <input class="list_info_input list_info_witdh" formControlName="description" placeholder="Description">
@@ -23,18 +56,24 @@
       </form>
 
 
-
       <div class="line_dev"></div>
+
+      <app-loading [set_loading]="list_loading" />
 
       <div *ngIf="list_is_made">
 
         <div class="words">
 
           <div *ngFor="let word of word_list; let index = index">
-            <app-word-item-item class="word_item_item" [word]="word" [index]="index" [word_list_id]="current_word_list?.id"/>
+            <app-word-item-item class="word_item_item" [word]="word" [index]="index" [word_list_id]="current_word_list?.id" [view_mode]="view_list"/>
           </div>
 
-          <div class="input_line">
+          <div class="input_line" *ngIf="view_list">
+
+          </div>
+
+
+          <div class="input_line" *ngIf="!view_list">
             <span class="words_number">{{ word_list.length + 1 }}</span>
 
             <form class="words_input" [formGroup]="new_word">

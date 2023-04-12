@@ -1,11 +1,12 @@
 import { WordItem } from "src/models/wordItem.model"
-import { BehaviorSubject, Observable } from "rxjs"
+import { BehaviorSubject, Observable, Subject } from "rxjs"
 import { HttpService } from "./http.service"
 import { Injectable } from "@angular/core"
 
 @Injectable({ providedIn: 'root' })
 export class wordService {
   word_list = new BehaviorSubject<WordItem[]>([]);
+  data_in = new BehaviorSubject<boolean>(false);
   temp_random_id_list: Array<number> = []
 
   constructor(private http: HttpService) { }
@@ -13,11 +14,13 @@ export class wordService {
 
   get_words(word_list_id: number) {
     this.http.getData<WordItem>("/api/word_item/" + word_list_id).subscribe(data => {
+      this.data_in.next(true)
       this.word_list.next(data)
     })
   }
 
   clear_list() {
+    this.data_in.next(false)
     this.word_list.next([])
   }
 

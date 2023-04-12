@@ -23,7 +23,7 @@
 
   </form>
 
-  <div class="edit_word">
+  <div class="edit_word" *ngIf="!view_list">
     <div class="edit_word_buttons" (click)="edit_word()" *ngIf="!is_edit_word">
       <img src="../../assets/svg/edit.svg" alt="">
     </div>

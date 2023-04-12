@@ -12,8 +12,10 @@ export class WordItemItemComponent {
   @ViewChild("wordInput") word_input?: ElementRef
 
   @Input("word_list_id") word_list_id?: number
+  @Input("view_mode") view_list = false
   @Input("word") word?: WordItem
   @Input("index") index = 0
+
   is_edit_word = false;
 
   edit_word_form = new FormGroup({

@@ -17,9 +17,81 @@
 
 .title_text {
   font-weight: 400;
-  margin: 0px 0px 10px 0px;
+  margin: 0px 0px 0px 0px;
   font-size: 50px;
   color: white;
+}
+
+.desciption_text {
+  font-weight: 400;
+  margin: 0px 0px 10px 0px;
+  font-size: 30px;
+  color: var(--input_text);
+}
+
+.view_list {
+  .info_buttons_holder {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .info_buttons {
+      display: flex;
+      
+      .test_button {
+        margin-right: 10px;
+      }
+      .list_do_button {
+        
+        span {
+          background-color: var(--light_back);
+          padding: 5px 10px;
+          border-radius: 4px;
+          color: var(--accent);
+          font-weight: 500;
+          font-size: 20px;
+
+          &:hover {
+            cursor: pointer;
+            background-color: var(--light_back_hover);
+          }
+        }
+      }
+    }
+  }
+
+  .land_choice {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .land_choice_form {
+      display: flex;
+      width: 45%;
+    }
+    .view_form_what_to_what {
+      color: var(--accent);
+    }
+
+    font-size: 30px;
+
+    .view_land_info {
+      display: flex;
+      align-items: center;
+      margin: 0px 0px 10px 0px;
+
+      .view_land_flag {
+        height: 25px;
+        margin-right: 10px;
+      }
+
+      .view_land_name {
+        color: var(--input_text);
+        font-weight: 400;
+        font-size: 23px;
+      }
+    }
+  }
 }
 
 .input_holder {
@@ -81,7 +153,6 @@
   height: 30px;
 }
 
-
 .words {
   margin-top: 30px;
   width: 100%;
@@ -117,7 +188,6 @@
   position: relative;
   left: 10px;
   width: 0px;
-  
 
   .add_words_button {
     padding: 5px 33px 6px 3px;

@@ -27,7 +27,7 @@ export class DropdownComponent implements OnInit{
 
     this.set_land_by_key?.subscribe(key => {
       this.land_list.map(e => {
-        if (e.key == key.toLowerCase()) {
+        if (e.key.toLowerCase() == key.toLowerCase()) {
           this.land_key = key
           this.language = e.name
         }

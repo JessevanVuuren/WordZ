@@ -38,7 +38,10 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
   land_list: land[] = []
   word_list: WordItem[] = []
 
-  list_is_made = false;
+  list_is_made = false
+  list_loading = true
+
+  view_list = false;
 
 
   list_info = new FormGroup({
@@ -61,6 +64,7 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.wordS.data_in.subscribe(b => this.list_loading = !b)
     this.wordS.word_list.subscribe(data => {
       this.word_list = data
       this.change.detectChanges()
@@ -68,14 +72,26 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    // const debug: WordList = { "id": 2, "user_id": 1, "name": "Test", "description": "simple test for testing", "from_language": "NL", "to_language": "NL", "created_at": "2023-03-31T18:23:48.000000Z", "updated_at": "2023-03-31T18:23:48.000000Z", "amount": 5 }
+    // const debug: WordList = { "id": 1, "user_id": 1, "name": "Test", "description": "simple test for testing", "from_language": "NL", "to_language": "CC", "created_at": "2023-03-31T18:23:48.000000Z", "updated_at": "2023-03-31T18:23:48.000000Z", "amount": 5 }
     // this.set_existing_list(debug)
+    // this.view_list = true
 
     this.list_state$?.subscribe(land => {
       if ("id" in window.history.state) {
+        this.view_list = true
         this.set_existing_list(land)
+      } else {
+        this.list_loading = false
       }
     })
+  }
+
+  switch_edit_mode() {
+    this.view_list = !this.view_list
+  }
+
+  go_to_test() {
+
   }
 
   set_existing_list(word_list: WordList) {
@@ -142,6 +158,8 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
           if (data) {
             this.current_word_list = data
             this.list_is_made = true
+            this.switch_edit_mode()
+            this.change.detectChanges()
           }
         })
       }
