@@ -30,36 +30,6 @@
 }
 
 .view_list {
-  .info_buttons_holder {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-
-    .info_buttons {
-      display: flex;
-      
-      .test_button {
-        margin-right: 10px;
-      }
-      .list_do_button {
-        
-        span {
-          background-color: var(--light_back);
-          padding: 5px 10px;
-          border-radius: 4px;
-          color: var(--accent);
-          font-weight: 500;
-          font-size: 20px;
-
-          &:hover {
-            cursor: pointer;
-            background-color: var(--light_back_hover);
-          }
-        }
-      }
-    }
-  }
-
   .land_choice {
     width: 100%;
     display: flex;
@@ -94,6 +64,37 @@
   }
 }
 
+.info_buttons_holder {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .info_buttons {
+    margin-top: 15px;
+    display: flex;
+    
+    .test_button {
+      margin-right: 10px;
+    }
+    .list_do_button {
+      
+      span {
+        background-color: var(--light_back);
+        padding: 5px 10px;
+        border-radius: 4px;
+        color: var(--accent);
+        font-weight: 500;
+        font-size: 20px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: var(--light_back_hover);
+        }
+      }
+    }
+  }
+}
+
 .input_holder {
   display: flex;
   justify-content: space-between;
@@ -116,30 +117,12 @@
   width: 47%;
 }
 
-.buttons {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-
-  .form_butt {
-    margin: 5px 0 10px 0;
-    font-size: 20px;
-    border: none;
-    background-color: var(--background);
-    color: var(--accent);
-
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
-  }
-}
-
 .language_info {
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .dropdown {

@@ -1,8 +1,5 @@
 <div class="container">
   <div class="main">
-    <h1 class="title_text" *ngIf="!view_list">{{list_is_made ? "Edit list" : "Create new list" }}</h1>
-
-
     <div *ngIf="view_list && current_word_list" class="view_list">
       <div class="info_buttons_holder">
         <div>
@@ -17,7 +14,6 @@
           <div class="list_do_button edit_button">
             <span (click)="switch_edit_mode()">EDIT</span>
           </div>
-          
         </div>
       </div>
       <div class="land_choice">
@@ -36,8 +32,22 @@
       </div>
     </div>
 
-    <div class="list_info">
-      <form [formGroup]="list_info" (ngSubmit)="save_or_update_list_info()" *ngIf="!view_list">
+    <div class="list_info">      
+      <form #my_form [formGroup]="list_info" (ngSubmit)="save_or_update_list_info()" *ngIf="!view_list">
+        <div class="info_buttons_holder">
+          <h1 class="title_text" *ngIf="!view_list">{{list_is_made ? "Edit list" : "Create new list" }}</h1>
+    
+          <div class="info_buttons">
+            <div class="list_do_button test_button">
+              <span (click)="delete_list()">DELETE</span>
+            </div>
+            <div class="list_do_button edit_button">
+              <span (click)="save_or_update_list_info()" >{{ list_is_made ? "UPDATE" : "SAVE" }}</span>
+            </div>
+            
+          </div>
+        </div>
+
         <div class="input_holder">
           <input class="list_info_input list_info_witdh" [ngClass]="list_info.get('list_name')?.hasError('required') && list_info.get('list_name')?.touched ? 'input_invalid' : 'input_valid'" formControlName="list_name" placeholder="Name">
           <input class="list_info_input list_info_witdh" formControlName="description" placeholder="Description">
@@ -47,11 +57,6 @@
           <app-dropdown class="dropdown" [set_land_by_key]="set_land1_by_key.asObservable()" [ngClass]="land1_valid ? 'input_valid' : 'input_invalid'" [land_list]="land_list" (selected)="dropdown1_index($event)" [set_land]="set_land1.asObservable()" />
           <img class="switchLand" (click)="switch_lands()" src="../../assets/svg/switch.svg" alt="">
           <app-dropdown class="dropdown" [set_land_by_key]="set_land2_by_key.asObservable()" [ngClass]="land2_valid ? 'input_valid' : 'input_invalid'" [land_list]="land_list" (selected)="dropdown2_index($event)" [set_land]="set_land2" />
-        </div>
-
-        <div class="buttons">
-          <button (click)="delete_list()" type="button" class="form_butt change_form">delete</button>
-          <button class="form_butt activate_form">{{ list_is_made ? "update" : "save" }}</button>
         </div>
       </form>
 

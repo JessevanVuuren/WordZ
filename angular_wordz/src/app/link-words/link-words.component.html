@@ -1,0 +1,10 @@
+<div class="main">
+  <div class="box">
+
+    <div class="words" *ngFor="let word of display_words; let index = index ">
+      <div class="word" [ngClass]="set_answer_class(word[0])" (click)="on_click_word(word[0], index)"><span>{{ word[0] }}</span></div>
+      <div class="word" [ngClass]="set_answer_class(word[1])" (click)="on_click_word(word[1], index)"><span>{{ word[1] }}</span></div>
+    </div>
+
+  </div>
+</div>

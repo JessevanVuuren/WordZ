@@ -1,0 +1,50 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  width: 550px;
+}
+
+.words {
+  display: flex;
+  justify-content: space-between;
+}
+
+.word {
+  background-color: var(--light_back);
+  margin-bottom: 30px;
+  border-radius: 6px;
+  // border: 1px solid var(--accent);
+  padding: 10px 30px;
+
+  span {
+    color: white;
+    font-size: 30px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--light_back_hover);
+  }
+}
+
+.good_word {
+  border: 1px solid var(--good)
+}
+
+.bad_word {
+  border: 1px solid var(--bad)
+}
+
+.selected_word {
+  border: 1px solid var(--accent)
+}
+
+.none_word {
+  border: 1px solid var(--light_back)
+
+}

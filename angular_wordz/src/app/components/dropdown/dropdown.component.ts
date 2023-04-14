@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { land } from 'src/models/land.model';
 
@@ -7,7 +7,7 @@ import { land } from 'src/models/land.model';
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.scss']
 })
-export class DropdownComponent implements OnInit{
+export class DropdownComponent implements OnInit, AfterViewInit{
   @Input("land_list") land_list:land[] = []
   @Input("set_land") set_land?: Observable<land>;
   @Input("set_land_by_key") set_land_by_key?: Observable<string>;
@@ -18,8 +18,7 @@ export class DropdownComponent implements OnInit{
   land_key = ""
   language = "Language"
 
-
-  ngOnInit() {
+  ngAfterViewInit(): void {
     this.set_land?.subscribe(land => {
       this.land_key = land.key
       this.language = land.name
@@ -33,6 +32,10 @@ export class DropdownComponent implements OnInit{
         }
       })
     })
+  }
+
+  ngOnInit() {
+
   }
 
   searchEvent(event: any) {
