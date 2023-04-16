@@ -37,7 +37,7 @@ import { LinkWordsComponent } from './link-words/link-words.component';
     WordItemItemComponent,
     LoadingComponent,
     OptionsComponent,
-    LinkWordsComponent
+    LinkWordsComponent,
   ],
   imports: [
     BrowserModule,

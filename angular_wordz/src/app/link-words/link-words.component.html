@@ -1,10 +1,20 @@
 <div class="main">
   <div class="box">
 
-    <div class="words" *ngFor="let word of display_words; let index = index ">
-      <div class="word" [ngClass]="set_answer_class(word[0])" (click)="on_click_word(word[0], index)"><span>{{ word[0] }}</span></div>
-      <div class="word" [ngClass]="set_answer_class(word[1])" (click)="on_click_word(word[1], index)"><span>{{ word[1] }}</span></div>
-    </div>
 
+    <div class="words" *ngFor="let word of display_words; let index = index ">
+      <div class="word word_left" #word_ref_right [ngClass]="set_answer_class(word[0])" (click)="on_click_word(word[0], word_ref_right, 'right')"><span>{{ word[0] }}</span></div>
+      <div class="word_mid_space"></div>
+      <div class="word word_right" #word_ref_left [ngClass]="set_answer_class(word[1])" (click)="on_click_word(word[1], word_ref_left, 'left')"><span>{{ word[1] }}</span></div>
+      
+      <svg class="line" width="100%" height="100%" [innerHTML]="get_line_x(word)">
+        
+      </svg>
+
+    </div>
+    
+    
+    
   </div>
 </div>
+

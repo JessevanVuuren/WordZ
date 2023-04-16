@@ -5,20 +5,30 @@
   height: 100vh;
 }
 
-.box {
-  width: 550px;
-}
 
 .words {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr auto 1fr;
+
+  .word_mid_space {
+    width: 10vw;
+  }
+  
+  .word_left {
+    justify-self: end;
+  }
+  
+  .word_right {
+    justify-self: start;
+  }
 }
+
 
 .word {
   background-color: var(--light_back);
   margin-bottom: 30px;
   border-radius: 6px;
-  // border: 1px solid var(--accent);
   padding: 10px 30px;
 
   span {
@@ -30,6 +40,12 @@
     cursor: pointer;
     background-color: var(--light_back_hover);
   }
+}
+
+.line {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
 }
 
 .good_word {
