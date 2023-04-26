@@ -9,7 +9,7 @@ import { WordList } from 'src/models/WordList.model';
 import { BehaviorSubject, Observable, Subject, map } from 'rxjs';
 import { land } from 'src/models/land.model';
 import { lands } from 'src/assets/lands';
-import { OptionsService } from 'src/service/options.service';
+import { GameService } from 'src/service/game.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -56,7 +56,7 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
     "translation": new FormControl("", [Validators.required])
   })
 
-  constructor(private listService: ListService, private activatedRoute: ActivatedRoute, private wordS: wordService, private change: ChangeDetectorRef, private router: Router, private options:OptionsService) {
+  constructor(private listService: ListService, private activatedRoute: ActivatedRoute, private wordS: wordService, private change: ChangeDetectorRef, private router: Router, private game:GameService) {
     this.list_state$ = this.activatedRoute.paramMap.pipe(map(() => window.history.state))
     lands.map(data => this.land_list.push({ "key": data[0], "name": data[1] }))
   }
@@ -94,9 +94,10 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
 
   go_to_test() {
     if (this.word_list.length > 0 && this.current_word_list && this.word_list) {
-      this.options.current_word_list = this.current_word_list
-      this.options.word_list = this.word_list
-      this.router.navigate(['/options']);
+      this.game.set_words_items(this.word_list)
+      this.game.set_word_list(this.current_word_list)
+      this.game.start_game("link-words")
+
     }
   }
 

@@ -15,6 +15,7 @@ export class WordItemItemComponent {
   @Input("view_mode") view_list = false
   @Input("word") word?: WordItem
   @Input("index") index = 0
+  @Input("display_number") dis_num = true
 
   is_edit_word = false;
 

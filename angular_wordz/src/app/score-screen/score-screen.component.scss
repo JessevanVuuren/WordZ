@@ -1,0 +1,72 @@
+.main {
+  margin-top: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  .score_text {
+    font-size: 50px;
+    margin: 0px 0px 10px 0px;
+    color: white;
+    font-weight: 400;
+  }
+
+  .rigth_wrong_percent {
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    margin: 0px;
+  }
+}
+
+.list_holder {
+  margin-bottom: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+
+  .lists {
+    margin-top: 50px;
+
+    .list_header {
+      display: flex;
+      justify-content: space-between;
+
+      h1 {
+        margin: 0px;
+        font-weight: 400;
+      }
+
+      .header_text_right {
+        color: var(--good);
+      }
+
+      .header_text_wrong {
+        color: var(--bad);
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+
+        background-color: var(--light_back);
+        padding: 5px 10px;
+        border-radius: 4px;
+        color: var(--accent);
+        font-weight: 500;
+        font-size: 20px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: var(--light_back_hover);
+        }
+      }
+    }
+
+    .list {
+      width: 500px;
+    }
+  }
+}

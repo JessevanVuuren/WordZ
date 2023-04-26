@@ -17,8 +17,8 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { FilterStringListPipe } from '../pipe/filter-string-list.pipe';
 import { WordItemItemComponent } from './components/items/word-item-item/word-item-item.component';
 import { LoadingComponent } from './components/loading/loading.component';
-import { OptionsComponent } from './options/options.component';
 import { LinkWordsComponent } from './link-words/link-words.component';
+import { ScoreScreenComponent } from './score-screen/score-screen.component';
 
 
 @NgModule({
@@ -36,8 +36,8 @@ import { LinkWordsComponent } from './link-words/link-words.component';
     FilterStringListPipe,
     WordItemItemComponent,
     LoadingComponent,
-    OptionsComponent,
     LinkWordsComponent,
+    ScoreScreenComponent,
   ],
   imports: [
     BrowserModule,

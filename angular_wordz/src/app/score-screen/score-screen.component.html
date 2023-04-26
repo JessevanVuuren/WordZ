@@ -1,0 +1,47 @@
+<div class="main">
+
+  <div class="score">
+    <h1 class="score_text">SCORE: {{ score }}/{{ total }}</h1>
+
+    <div class=""></div>
+
+    <h2 class="rigth_wrong_percent">right: {{ percent_right }}<span>%</span></h2>
+    <h2 class="rigth_wrong_percent">wrong: {{ percent_wrong }}<span>%</span></h2>
+  </div>
+</div>
+
+
+<div class="list_holder" *ngIf="current_word_list">
+
+  <div>
+
+    
+    <div class="lists" *ngIf="right_words.length > 0">
+    <div class="list_header">
+      <h1 class="header_text_right">Right</h1>
+      <div (click)="redo_right()"> REDO </div>
+    </div>
+    
+    <div class="list">
+      <div class="right_items" *ngFor="let word of right_words; let index = index">
+        <app-word-item-item [word_list_id]="current_word_list.id" [view_mode]="true" [word]="word" [index]="index" [display_number]="false"></app-word-item-item>
+      </div>
+    </div>
+  </div>
+  
+  <div class="lists" *ngIf="wrong_words.length > 0">
+    <div class="list_header">
+      <h1 class="header_text_wrong">Wrong</h1>
+      <div (click)="redo_wrong()"> REDO </div>
+    </div>
+    
+    <div class="list">
+      <div class="right_items" *ngFor="let word of wrong_words; let index = index">
+        <app-word-item-item [word_list_id]="current_word_list.id" [view_mode]="true" [word]="word" [index]="index" [display_number]="false"></app-word-item-item>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+</div>

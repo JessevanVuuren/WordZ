@@ -7,14 +7,9 @@
       <div class="word_mid_space"></div>
       <div class="word word_right" #word_ref_left [ngClass]="set_answer_class(word[1])" (click)="on_click_word(word[1], word_ref_left, 'left')"><span>{{ word[1] }}</span></div>
       
-      <svg class="line" width="100%" height="100%" [innerHTML]="get_line_x(word)">
-        
-      </svg>
+      <svg class="line" width="100%" height="100%" [innerHTML]="get_line_x(word)"></svg>
 
     </div>
-    
-    
-    
   </div>
 </div>
 

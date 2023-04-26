@@ -1,5 +1,5 @@
 <div class="input_line">
-  <span class="words_number">{{ index + 1 }}</span>
+  <span *ngIf="dis_num" class="words_number">{{ index + 1 }}</span>
 
   <div class="words_input" *ngIf="!is_edit_word">
     <div class="word_holder">
