@@ -97,7 +97,6 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
       this.game.set_words_items(this.word_list)
       this.game.set_word_list(this.current_word_list)
       this.game.start_game("link-words")
-
     }
   }
 

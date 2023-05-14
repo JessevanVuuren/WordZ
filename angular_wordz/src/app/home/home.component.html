@@ -31,7 +31,7 @@
       </div>
 
       <div>
-        <app-loading [set_loading]="word_list.length == 0" />
+        <!-- <app-loading [set_loading]="word_list.length == 0" /> -->
 
         <div *ngFor="let item of word_list | searchFilter: searchText">
           <app-word-list-item [item]="item" />

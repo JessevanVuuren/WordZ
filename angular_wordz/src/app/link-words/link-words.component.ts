@@ -178,7 +178,7 @@ export class LinkWordsComponent {
     if (this.word_item_pull.length < 5) this.amount_of_words = this.word_item_pull.length % 5
 
 
-    const random_list = this.shuffle_array([...this.word_item_pull])
+    const random_list = this.game.shuffle_array([...this.word_item_pull])
     for (let i = 0; i < this.amount_of_words; i++) {
       const element = random_list[i]
       word_word.push(element.word)
@@ -187,24 +187,14 @@ export class LinkWordsComponent {
       this.word_item_pull.splice(index, 1)
     }
 
-    word_word = this.shuffle_array(word_word)
-    word_translation = this.shuffle_array(word_translation)
+    word_word = this.game.shuffle_array(word_word)
+    word_translation = this.game.shuffle_array(word_translation)
 
     for (let i = 0; i < this.amount_of_words; i++) {
       const element1 = word_word[i];
       const element2 = word_translation[i];
       this.display_words.push([element1, element2])
     }
-  }
-
-  shuffle_array<T>(array: T[]): T[] {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array
   }
 
   @HostListener('window:resize', ['$event'])

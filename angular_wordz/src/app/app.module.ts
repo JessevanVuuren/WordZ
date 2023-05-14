@@ -19,6 +19,7 @@ import { WordItemItemComponent } from './components/items/word-item-item/word-it
 import { LoadingComponent } from './components/loading/loading.component';
 import { LinkWordsComponent } from './link-words/link-words.component';
 import { ScoreScreenComponent } from './score-screen/score-screen.component';
+import { SpellingComponent } from './spelling/spelling.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { ScoreScreenComponent } from './score-screen/score-screen.component';
     LoadingComponent,
     LinkWordsComponent,
     ScoreScreenComponent,
+    SpellingComponent,
   ],
   imports: [
     BrowserModule,

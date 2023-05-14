@@ -11,7 +11,7 @@ export class GameService {
   correct_words: WordItem[] = []
   incorrect_words: WordItem[] = []
 
-  debugMode = false
+  debugMode = true
 
   constructor(private router:Router) {
     if (this.debugMode) {
@@ -246,5 +246,15 @@ export class GameService {
   clear_game_score() {
     this.correct_words = []
     this.incorrect_words = []
+  }
+
+  shuffle_array<T>(array: T[]): T[] {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array
   }
 }
