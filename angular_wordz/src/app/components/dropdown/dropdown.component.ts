@@ -9,6 +9,7 @@ import { land } from 'src/models/land.model';
 })
 export class DropdownComponent implements OnInit, AfterViewInit{
   @Input("land_list") land_list:land[] = []
+  @Input("placeholder") language?:String
   @Input("set_land") set_land?: Observable<land>;
   @Input("set_land_by_key") set_land_by_key?: Observable<string>;
   @Output("selected") set_selected: EventEmitter<land> = new EventEmitter()
@@ -16,12 +17,11 @@ export class DropdownComponent implements OnInit, AfterViewInit{
   search = ""
 
   land_key = ""
-  language = "Language"
 
   ngAfterViewInit(): void {
     this.set_land?.subscribe(land => {
-      this.land_key = land.key
-      this.language = land.name
+      if (land.key) this.land_key = land.key
+      if (land.name) this.language = land.name
     })
 
     this.set_land_by_key?.subscribe(key => {

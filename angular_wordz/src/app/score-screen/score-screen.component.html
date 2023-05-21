@@ -12,36 +12,43 @@
 
 
 <div class="list_holder" *ngIf="current_word_list">
-
   <div>
-
-    
     <div class="lists" *ngIf="right_words.length > 0">
-    <div class="list_header">
-      <h1 class="header_text_right">Right</h1>
-      <div (click)="redo_right()"> REDO </div>
+      <div class="list_header">
+        <div (click)="take_me_home()"> HOME </div>
+        <div (click)="redo_entire_list()"> REDO </div>
+      </div>
+
     </div>
-    
-    <div class="list">
-      <div class="right_items" *ngFor="let word of right_words; let index = index">
-        <app-word-item-item [word_list_id]="current_word_list.id" [view_mode]="true" [word]="word" [index]="index" [display_number]="false"></app-word-item-item>
+    <div class="line_dev"></div>
+
+
+    <div class="lists" *ngIf="right_words.length > 0">
+      <div class="list_header">
+        <h1 class="header_text_right">Right</h1>
+        <!-- <div (click)="redo_right()"> REDO </div> -->
+      </div>
+
+      <div class="list">
+        <div class="right_items" *ngFor="let word of right_words; let index = index">
+          <app-word-item-item [word_list_id]="current_word_list.id" [view_mode]="true" [word]="word" [index]="index" [display_number]="false"></app-word-item-item>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="lists" *ngIf="wrong_words.length > 0">
-    <div class="list_header">
-      <h1 class="header_text_wrong">Wrong</h1>
-      <div (click)="redo_wrong()"> REDO </div>
-    </div>
-    
-    <div class="list">
-      <div class="right_items" *ngFor="let word of wrong_words; let index = index">
-        <app-word-item-item [word_list_id]="current_word_list.id" [view_mode]="true" [word]="word" [index]="index" [display_number]="false"></app-word-item-item>
+
+    <div class="lists" *ngIf="wrong_words.length > 0">
+      <div class="list_header">
+        <h1 class="header_text_wrong">Wrong</h1>
+        <div (click)="redo_wrong()"> RETRY </div>
+      </div>
+
+      <div class="list">
+        <div class="right_items" *ngFor="let word of wrong_words; let index = index">
+          <app-word-item-item [word_list_id]="current_word_list.id" [view_mode]="true" [word]="word" [index]="index" [display_number]="false"></app-word-item-item>
+        </div>
       </div>
     </div>
+
   </div>
-  
-</div>
 
 </div>

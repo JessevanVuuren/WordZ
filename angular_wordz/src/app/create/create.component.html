@@ -1,6 +1,7 @@
 <div class="container">
   <div class="main">
     <div *ngIf="view_list && current_word_list" class="view_list">
+      <app-back-arrow />
       <div class="info_buttons_holder">
         <div>
           <h1 class="title_text">{{ current_word_list.name }}</h1>
@@ -32,19 +33,21 @@
       </div>
     </div>
 
-    <div class="list_info">      
+    <div class="list_info">
+      <div *ngIf="!view_list"><app-back-arrow /></div>
+      
       <form #my_form [formGroup]="list_info" (ngSubmit)="save_or_update_list_info()" *ngIf="!view_list">
         <div class="info_buttons_holder">
           <h1 class="title_text" *ngIf="!view_list">{{list_is_made ? "Edit list" : "Create new list" }}</h1>
-    
+
           <div class="info_buttons">
             <div class="list_do_button test_button">
               <span (click)="delete_list()">DELETE</span>
             </div>
             <div class="list_do_button edit_button">
-              <span (click)="save_or_update_list_info()" >{{ list_is_made ? "UPDATE" : "SAVE" }}</span>
+              <span (click)="save_or_update_list_info()">{{ list_is_made ? "UPDATE" : "SAVE" }}</span>
             </div>
-            
+
           </div>
         </div>
 
@@ -54,9 +57,9 @@
         </div>
 
         <div class="language_info">
-          <app-dropdown class="dropdown" [set_land_by_key]="set_land1_by_key.asObservable()" [ngClass]="land1_valid ? 'input_valid' : 'input_invalid'" [land_list]="land_list" (selected)="dropdown1_index($event)" [set_land]="set_land1.asObservable()" />
+          <app-dropdown class="dropdown" [set_land_by_key]="set_land1_by_key.asObservable()" [ngClass]="land1_valid ? 'input_valid' : 'input_invalid'" [land_list]="land_list" (selected)="dropdown1_index($event)" [set_land]="set_land1.asObservable()" [placeholder]="'Current Language'" />
           <img class="switchLand" (click)="switch_lands()" src="../../assets/svg/switch.svg" alt="">
-          <app-dropdown class="dropdown" [set_land_by_key]="set_land2_by_key.asObservable()" [ngClass]="land2_valid ? 'input_valid' : 'input_invalid'" [land_list]="land_list" (selected)="dropdown2_index($event)" [set_land]="set_land2" />
+          <app-dropdown class="dropdown" [set_land_by_key]="set_land2_by_key.asObservable()" [ngClass]="land2_valid ? 'input_valid' : 'input_invalid'" [land_list]="land_list" (selected)="dropdown2_index($event)" [set_land]="set_land2.asObservable()" [placeholder]="'Target Language'" />
         </div>
       </form>
 
@@ -70,7 +73,7 @@
         <div class="words">
 
           <div *ngFor="let word of word_list; let index = index">
-            <app-word-item-item class="word_item_item" [word]="word" [index]="index" [word_list_id]="current_word_list?.id" [view_mode]="view_list"/>
+            <app-word-item-item class="word_item_item" [word]="word" [index]="index" [word_list_id]="current_word_list?.id" [view_mode]="view_list" />
           </div>
 
           <div class="input_line" *ngIf="view_list">

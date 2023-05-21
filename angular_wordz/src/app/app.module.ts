@@ -20,6 +20,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { LinkWordsComponent } from './link-words/link-words.component';
 import { ScoreScreenComponent } from './score-screen/score-screen.component';
 import { SpellingComponent } from './spelling/spelling.component';
+import { BackArrowComponent } from './components/back-arrow/back-arrow.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { SpellingComponent } from './spelling/spelling.component';
     LinkWordsComponent,
     ScoreScreenComponent,
     SpellingComponent,
+    BackArrowComponent,
   ],
   imports: [
     BrowserModule,
