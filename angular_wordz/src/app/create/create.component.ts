@@ -181,6 +181,8 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
       this.listService.delete_list(this.current_word_list.id).subscribe(data => {
         this.router.navigate(["/home"])
       })
+    } else {
+      this.router.navigate(["/home"])
     }
   }
 

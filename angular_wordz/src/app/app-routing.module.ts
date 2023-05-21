@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: "test", component: TestComponent, canActivate: [canActivate] },
   { path: "create", component: CreateComponent, canActivate: [canActivate] },
   { path: "score", component: ScoreScreenComponent, canActivate: [canActivate] },
+  // { path: "score", component: ScoreScreenComponent },
   { path: "link-words", component: LinkWordsComponent, canActivate: [canActivate] },
   { path: "spelling", component: SpellingComponent },
 
