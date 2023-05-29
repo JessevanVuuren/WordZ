@@ -1,21 +1,34 @@
 <div class="container">
   <div class="main">
     <div *ngIf="view_list && current_word_list" class="view_list">
-      <app-back-arrow />
+
+      <div class="info_buttons_holder">
+        <app-back-arrow />
+      
+        <div class="info_buttons mobile_ready">
+          <div class="list_do_button test_button" (clickOutside)="game_selector = false">
+            <span (click)="open_game_selector()">TEST ME</span>
+            <div class="game_selector" *ngIf="game_selector">
+              <div (click)="go_to_test('link-words')">
+                <a>link words</a>
+              </div>
+              <div (click)="go_to_test('spelling')">
+                <a>spelling check</a>
+              </div>
+            </div>
+          </div>
+          <div class="list_do_button edit_button">
+            <span (click)="switch_edit_mode()">EDIT</span>
+          </div>
+        </div>
+      </div>
+
       <div class="info_buttons_holder">
         <div>
           <h1 class="title_text">{{ current_word_list.name }}</h1>
           <h4 class="desciption_text">{{ current_word_list.description }}</h4>
         </div>
 
-        <div class="info_buttons">
-          <div class="list_do_button test_button">
-            <span (click)="go_to_test()">TEST ME</span>
-          </div>
-          <div class="list_do_button edit_button">
-            <span (click)="switch_edit_mode()">EDIT</span>
-          </div>
-        </div>
       </div>
       <div class="land_choice">
         <div class="land_choice_form">
@@ -35,12 +48,12 @@
 
     <div class="list_info">
       <div *ngIf="!view_list"><app-back-arrow /></div>
-      
+
       <form #my_form [formGroup]="list_info" (ngSubmit)="save_or_update_list_info()" *ngIf="!view_list">
         <div class="info_buttons_holder">
           <h1 class="title_text" *ngIf="!view_list">{{list_is_made ? "Edit list" : "Create new list" }}</h1>
 
-          <div class="info_buttons">
+          <div class="info_buttons mobile_ready">
             <div class="list_do_button test_button">
               <span (click)="delete_list()">DELETE</span>
             </div>
@@ -58,7 +71,7 @@
 
         <div class="language_info">
           <app-dropdown class="dropdown" [set_land_by_key]="set_land1_by_key.asObservable()" [ngClass]="land1_valid ? 'input_valid' : 'input_invalid'" [land_list]="land_list" (selected)="dropdown1_index($event)" [set_land]="set_land1.asObservable()" [placeholder]="'Current Language'" />
-          <img class="switchLand" (click)="switch_lands()" src="../../assets/svg/switch.svg" alt="">
+          <img class="switchLand switch_lands_mobile" (click)="switch_lands()" src="../../assets/svg/switch.svg" alt="">
           <app-dropdown class="dropdown" [set_land_by_key]="set_land2_by_key.asObservable()" [ngClass]="land2_valid ? 'input_valid' : 'input_invalid'" [land_list]="land_list" (selected)="dropdown2_index($event)" [set_land]="set_land2.asObservable()" [placeholder]="'Target Language'" />
         </div>
       </form>
@@ -86,7 +99,7 @@
 
             <form class="words_input" [formGroup]="new_word">
               <input #word_input formControlName="word" class="words_word words_width list_info_input" [ngClass]="new_word.get('word')?.hasError('required') && new_word.get('word')?.touched ? 'input_invalid' : 'input_valid'" type="text" placeholder="word">
-              <img class="switchLand" src="../../assets/svg/arrowRight.svg" alt="">
+              <img class="switchLand switch_lands_mobile" src="../../assets/svg/arrowRight.svg" alt="">
               <input formControlName="translation" class="words_mean words_width list_info_input" (keyup.enter)="add_new_word()" [ngClass]="new_word.get('translation')?.hasError('required') && new_word.get('translation')?.touched ? 'input_invalid' : 'input_valid'" type="text" placeholder="translation">
             </form>
 

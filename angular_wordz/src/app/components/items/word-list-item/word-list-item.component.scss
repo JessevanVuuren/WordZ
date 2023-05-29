@@ -14,12 +14,16 @@
   background-color: var(--light_back);
   margin-bottom: 10px;
   display: inline-grid;
-  grid-template-columns: 1fr 0.5fr .2fr;
+  grid-template-columns: 1fr 0.5fr 0.2fr;
   border-radius: 10px;
 
   &:hover {
     background-color: var(--light_back_hover);
     cursor: pointer;
+  }
+
+  .mobile_ready {
+    display: none;
   }
 }
 
@@ -73,4 +77,59 @@
 .item_amount {
   display: flex;
   justify-content: flex-end;
+}
+
+@media (max-width: 650px) {
+  .word_list_items {
+    display: block !important;
+
+    .pc_ready {
+      display: none;
+    }
+
+    .mobile_ready {
+      display: flex !important;
+      justify-content: center;
+      padding: 0px 0px 5px 0px;
+
+
+      .mobile_info_list {
+        margin-top: 3px;
+        display: flex !important;
+        justify-content: space-between;
+        width: 90%;
+          
+
+        .item_amount {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+
+  .flag_img {
+    width: 25px;
+    min-width: 25px;
+    height: 25px;
+    margin: 13px 10px 10px 10px;
+    img {
+      height: 25px;
+    }
+  }
+
+  .item_name {
+    margin-top: 3px;
+    font-size: 17px;
+  }
+
+  .item_date {
+    font-size: 14px;
+  }
+  .item_amount {
+    font-size: 14px;
+  }
+
+  .item_description {
+    margin-right: 10px;
+  }
 }

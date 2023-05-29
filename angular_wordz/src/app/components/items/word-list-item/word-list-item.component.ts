@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { WordList } from 'src/models/WordList.model';
 
@@ -7,8 +7,10 @@ import { WordList } from 'src/models/WordList.model';
   templateUrl: './word-list-item.component.html',
   styleUrls: ['./word-list-item.component.scss']
 })
-export class WordListItemComponent {
+export class WordListItemComponent  {
   @Input("item") item?:WordList;
+
+
 
   constructor(private route:Router) {
 

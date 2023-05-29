@@ -5,12 +5,14 @@
     </div>
     <div class="input">
       <input type="text" [(ngModel)]="input_value" class="translation" placeholder="translation..." (keyup.enter)="check_word()">
-      <div class="buttons">
-        <div class="list_do_button">
-          <span (click)="give_hint()" >HINT</span>
-        </div>
-        <div class="list_do_button">
-          <span (click)="check_word()">NEXT</span>
+      <div class="buttons_holder">
+        <div class="buttons">
+          <div class="list_do_button">
+            <span (click)="give_hint()">HINT</span>
+          </div>
+          <div class="list_do_button">
+            <span (click)="check_word()">NEXT</span>
+          </div>
         </div>
       </div>
     </div>

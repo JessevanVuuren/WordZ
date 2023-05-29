@@ -10,6 +10,7 @@ import { BehaviorSubject, Observable, Subject, map } from 'rxjs';
 import { land } from 'src/models/land.model';
 import { lands } from 'src/assets/lands';
 import { GameService } from 'src/service/game.service';
+import { AvailableGames } from 'src/models/Games';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,6 +33,7 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
   list_state$?: Observable<WordList>;
   current_word_list?: WordList
 
+  game_selector = false
 
   land1_valid = true
   land2_valid = true
@@ -43,7 +45,7 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
   list_is_made = false
   list_loading = true
 
-  view_list = false;
+  view_list = true;
 
 
   list_info = new FormGroup({
@@ -56,7 +58,7 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
     "translation": new FormControl("", [Validators.required])
   })
 
-  constructor(private listService: ListService, private activatedRoute: ActivatedRoute, private wordS: wordService, private change: ChangeDetectorRef, private router: Router, private game:GameService) {
+  constructor(private listService: ListService, private activatedRoute: ActivatedRoute, private wordS: wordService, private change: ChangeDetectorRef, private router: Router, private game: GameService) {
     this.list_state$ = this.activatedRoute.paramMap.pipe(map(() => window.history.state))
     lands.map(data => this.land_list.push({ "key": data[0], "name": data[1] }))
   }
@@ -74,10 +76,6 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    // const debug: WordList = { "id":8, "user_id": 1, "name": "Test", "description": "simple test for testing", "from_language": "NL", "to_language": "CC", "created_at": "2023-03-31T18:23:48.000000Z", "updated_at": "2023-03-31T18:23:48.000000Z", "amount": 5 }
-    // this.set_existing_list(debug)
-    // this.view_list = true
-    // this.list_loading = false
     this.list_state$?.subscribe(land => {
       if ("id" in window.history.state) {
         this.view_list = true
@@ -88,15 +86,19 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
     })
   }
 
+  open_game_selector() {
+    this.game_selector = !this.game_selector
+  }
+
   switch_edit_mode() {
     this.view_list = !this.view_list
   }
 
-  go_to_test() {
+  go_to_test(game: AvailableGames) {
     if (this.word_list.length > 0 && this.current_word_list && this.word_list) {
       this.game.set_words_items(this.word_list)
       this.game.set_word_list(this.current_word_list)
-      this.game.start_game("link-words")
+      this.game.start_game(game)
     }
   }
 
@@ -136,27 +138,27 @@ export class CreateComponent implements AfterViewInit, OnInit, OnDestroy {
       this.word_input?.nativeElement.focus()
     }
   }
-  
+
   save_or_update_list_info() {
     this.land1_valid = true
     this.land2_valid = true
-    
+
     if (this.land1.name === '') this.land1_valid = false
     if (this.land2.name === '') this.land2_valid = false
-    
+
     if (this.list_info.invalid) this.list_info.markAllAsTouched()
-    
+
     const list_name = this.list_info.get("list_name")?.value
     const description = this.list_info.get("description")?.value
     if (this.list_info.valid && this.land1_valid && this.land2_valid && list_name) {
-      
+
       const new_word_list: make_WordList = {
         name: list_name,
         description: description ? description : "",
         from_language: this.land1.key.toUpperCase(),
         to_language: this.land2.key.toUpperCase()
       }
-      
+
       if (this.list_is_made && this.current_word_list) {
         this.listService.update_list(new_word_list, this.current_word_list?.id)
         this.current_word_list.name = new_word_list.name

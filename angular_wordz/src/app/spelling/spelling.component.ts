@@ -30,23 +30,24 @@ export class SpellingComponent {
   }
 
   check_word() {
-    if (this.current_word) {
-      this.next_word()
-      this.correct_words_list.push(this.current_word)
-    }
-
-
-    // if (this.current_word && this.input_value) {
-      
-    //   if (this.current_word.translation.toLocaleLowerCase() === this.input_value.toLocaleLowerCase()) {
-    //     this.correct_words_list.push(this.current_word)
-    //     this.next_word()
-    //   }
-    //   else {
-    //     this.incorrect_words_list.push(this.current_word)
-    //     console.log(this.current_word)
-    //   }
+    // if (this.current_word) {
+    //   this.next_word()
+    //   this.correct_words_list.push(this.current_word)
     // }
+
+
+    if (this.current_word && this.input_value) {
+      
+      if (this.current_word.translation.toLocaleLowerCase() === this.input_value.toLocaleLowerCase()) {
+        this.correct_words_list.push(this.current_word)
+        this.next_word()
+      }
+      else {
+        this.incorrect_words_list.push(this.current_word)
+        this.next_word()
+
+      }
+    }
   }
 
   next_word() {

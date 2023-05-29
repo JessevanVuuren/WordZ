@@ -181,3 +181,107 @@
     }
   }
 }
+
+.mobile_ready {
+  display: none;
+}
+
+.game_selector {
+  border-radius: 0 4px 4px 4px;
+  width: 150px;
+  margin-top: 14px;
+  position: absolute;
+  background-color: var(--light_back);
+
+  div {
+    padding: 10px 10px 10px 10px;
+
+    a {
+      color: var(--accent);
+
+    }
+    &:hover {
+      background-color: var(--light_back_hover);
+      cursor: pointer;
+    }
+
+  }
+}
+
+
+@media (max-width: 650px) {
+  .main {
+    width: 90%;
+  }
+  .title_text {
+    font-size: 25px;
+  }
+  .info_buttons {
+    display: none !important;
+  }
+  .desciption_text {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .mobile_ready {
+    margin: 3px 0px 5px 0px !important;
+    display: flex !important;
+
+    .test_button {
+      span {
+        font-size: 15px !important;
+      }
+    }
+    .edit_button {
+      span {
+        font-size: 15px !important;
+      }
+    }
+  }
+
+  .view_land_name {
+    font-size: 17px !important;
+  }
+  .input_holder {
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+
+    flex-direction: column;
+  }
+  .list_info_witdh {
+    width: auto;
+    flex: 1;
+  }
+  .list_info_input {
+    font-size: 17px;
+    padding: 7px;
+    margin-bottom: 5px;
+  }
+  .language_info {
+    display: block !important;
+    margin: 0px;
+  }
+  .switch_lands_mobile {
+    display: none !important;
+  }
+  .input_valid {
+    border:none !important;
+  }
+  .words_number {
+    display: none;
+  }
+  .words_input {
+    flex-direction: column;
+  }
+  .words_width {
+    width: auto
+  }
+  .add_words_button {
+    padding: 5px 19px 6px 19px !important;
+  }
+  .add_words {
+    width: auto;
+    left: 0px;
+  }
+}

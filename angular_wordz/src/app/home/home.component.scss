@@ -81,13 +81,16 @@
 
 
   .add_list {
+    display: flex;
+    align-items: center;
+
     div {
       border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 45px;
-      width: 45px;
+      height: 43px;
+      width: 43px;
       background-color: var(--input_text);
       h1 {
         font-weight: 400;
@@ -101,6 +104,56 @@
         cursor: pointer;
         background-color: var(--input_text_hover);
       }
+    }
+  }
+}
+
+.mobile_ready {
+  display: none;   
+}
+
+@media (max-width: 650px) {
+  .main {
+    width: 90%;
+  }
+  .search_bar {
+    flex: 1;
+  }
+  .input_div  {
+    display: flex;
+  }
+  .login_input {
+    flex: 1;
+  }
+  .add_list {
+    display: none !important;
+  }
+  .welcome_text {
+    font-size: 24px;
+    margin: 0px;
+  }
+
+  .login_input {
+    padding: 5px 10px 5px 45px !important;
+    font-size: 17px !important;
+    margin-bottom: 10px !important;
+  }
+
+    
+  .search::before {
+    background-position: 15px 11px !important;
+    background-size: 23px !important;
+  }
+
+  .mobile_ready {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .header_text {
+    display: none;
+    h2 {
+      font-size: 16px;
     }
   }
 }

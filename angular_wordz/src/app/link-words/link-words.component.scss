@@ -64,3 +64,13 @@
   border: 1px solid var(--light_back)
 
 }
+
+@media (max-width: 650px) {
+  .word {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    span {
+      font-size: 17px;
+    }
+  }
+}

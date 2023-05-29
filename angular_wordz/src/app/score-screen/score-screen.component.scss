@@ -23,50 +23,64 @@
 
 .list_holder {
   margin-bottom: 100px;
-  width: 100vw;
   display: flex;
   justify-content: center;
 
-  .lists {
-    margin: 30px 0px 20px 0px;
+  .inner_holder {
+    width: 90%;
+    max-width: 500px;
 
-    .list_header {
-      display: flex;
-      justify-content: space-between;
+    .lists {
+      margin: 30px 0px 20px 0px;
 
-      h1 {
-        margin: 0px;
-        font-weight: 400;
-      }
-
-      .header_text_right {
-        color: var(--good);
-      }
-
-      .header_text_wrong {
-        color: var(--bad);
-      }
-
-      div {
+      .list_header {
         display: flex;
-        align-items: center;
+        justify-content: space-between;
 
-        background-color: var(--light_back);
-        padding: 5px 10px;
-        border-radius: 4px;
-        color: var(--accent);
-        font-weight: 500;
-        font-size: 20px;
+        h1 {
+          margin: 0px;
+          font-weight: 400;
+        }
 
-        &:hover {
-          cursor: pointer;
-          background-color: var(--light_back_hover);
+        .header_text_right {
+          color: var(--good);
+        }
+
+        .header_text_wrong {
+          color: var(--bad);
+        }
+
+        div {
+          display: flex;
+          align-items: center;
+
+          background-color: var(--light_back);
+          padding: 5px 10px;
+          border-radius: 4px;
+          color: var(--accent);
+          font-weight: 500;
+          font-size: 20px;
+
+          &:hover {
+            cursor: pointer;
+            background-color: var(--light_back_hover);
+          }
         }
       }
     }
+  }
+}
 
-    .list {
-      width: 500px;
+@media (max-width: 650px) {
+  .score_text {
+    font-size: 30px !important;
+  }
+  .rigth_wrong_percent {
+    font-size: 18px !important;
+  }
+  .list_header {
+    h1 {
+      margin-bottom: 10px !important;
     }
   }
 }

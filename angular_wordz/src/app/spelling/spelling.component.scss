@@ -5,7 +5,6 @@
 }
 
 .container {
-  
   margin-top: 100px;
   text-align: center;
 }
@@ -28,14 +27,12 @@
   &:focus {
     outline-width: 0;
   }
-
 }
 
 .nextIcon {
   height: 40px;
   margin-left: 10px;
 }
-
 
 .buttons {
   display: flex;
@@ -49,10 +46,33 @@
       font-weight: 500;
       font-size: 20px;
 
-    &:hover {
-      cursor: pointer;
-      background-color: var(--light_back_hover);
+      &:hover {
+        cursor: pointer;
+        background-color: var(--light_back_hover);
+      }
     }
   }
 }
+
+@media (max-width: 650px) {
+  .translation {
+    font-size: 27px;
+    width: 75%;
+    border-bottom: 1px solid var(--accent);
+  }
+  .buttons {
+    width: 81%;
+  }
+  .buttons_holder {
+    display: flex;
+    justify-content: center;
+  }
+  .list_do_button {
+    span {
+      font-size: 17px !important;
+    }
+  }
+  .word_text {
+    font-size: 45px !important;
+  }
 }

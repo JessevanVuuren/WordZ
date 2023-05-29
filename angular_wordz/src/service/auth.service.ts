@@ -21,6 +21,16 @@ export class AuthService {
     return this.http.getSingleData<AuthResponse>("/api/validate_token")
   }
 
+  async validate_key_auth_guard(): Promise<boolean> {
+    return new Promise((res, rej) => {
+      this.http.getSingleData<AuthResponse>("/api/validate_token").subscribe((data) => {
+        res(data.message === "Valid token")
+      }, err => {
+        res(false)
+      })
+    })
+  }
+
   login(username: string, password: string): Observable<AuthResponse> {
     return this.http.sendData<AuthResponse>("/api/login", {
       "email": username,
@@ -57,11 +67,11 @@ export class AuthService {
 }
 
 
-export const canActivate: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+export const canActivate: CanActivateFn = async (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
-  if (!authService.is_logged_in.value) {
+  if (!await authService.validate_key_auth_guard()) {
     router.navigate(["/login"])
     return false
   }

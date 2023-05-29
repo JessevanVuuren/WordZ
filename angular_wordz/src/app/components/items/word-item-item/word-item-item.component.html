@@ -2,14 +2,18 @@
   <span *ngIf="dis_num" class="words_number">{{ index + 1 }}</span>
 
   <div class="words_input" *ngIf="!is_edit_word">
-    <div class="word_holder">
+    <div class="word_holder word_mobile">
       <span>{{ word?.word }}</span>
     </div>
 
     <div class="word_holder">
       <span>{{ word?.translation }}</span>
     </div>
+
+    <div class="mobile_line"></div>
+
   </div>
+
 
   <form class="words_input" *ngIf="is_edit_word" [formGroup]="edit_word_form" >
 

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CreateComponent } from './create/create.component';
-import { TestComponent } from './test/test.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatumPipe } from '../pipe/datum.pipe';
@@ -29,7 +28,6 @@ import { BackArrowComponent } from './components/back-arrow/back-arrow.component
     LoginComponent,
     HomeComponent,
     CreateComponent,
-    TestComponent,
     DatumPipe,
     WordListItemComponent,
     SearchFilterPipe,
@@ -50,7 +48,8 @@ import { BackArrowComponent } from './components/back-arrow/back-arrow.component
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

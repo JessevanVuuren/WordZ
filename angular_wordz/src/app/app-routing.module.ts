@@ -1,20 +1,18 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { canActivate } from 'src/service/auth.service';
-import { CreateComponent } from './create/create.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { TestComponent } from './test/test.component';
-import { LinkWordsComponent } from './link-words/link-words.component';
-import { ScoreScreenComponent } from './score-screen/score-screen.component';
-import { SpellingComponent } from './spelling/spelling.component';
+import { ScoreScreenComponent } from './score-screen/score-screen.component'
+import { LinkWordsComponent } from './link-words/link-words.component'
+import { SpellingComponent } from './spelling/spelling.component'
+import { CreateComponent } from './create/create.component'
+import { LoginComponent } from './login/login.component'
+import { RouterModule, Routes } from '@angular/router'
+import { canActivate } from 'src/service/auth.service'
+import { HomeComponent } from './home/home.component'
+import { NgModule } from '@angular/core'
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
 
   
   { path: "", component: HomeComponent, canActivate: [canActivate] },
-  { path: "test", component: TestComponent, canActivate: [canActivate] },
   { path: "create", component: CreateComponent, canActivate: [canActivate] },
   { path: "score", component: ScoreScreenComponent, canActivate: [canActivate] },
   // { path: "score", component: ScoreScreenComponent },

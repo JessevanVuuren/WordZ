@@ -2,6 +2,7 @@ import { WordItem } from "src/models/wordItem.model"
 import { Injectable } from "@angular/core"
 import { WordList } from "src/models/WordList.model"
 import { Router } from "@angular/router"
+import { AvailableGames } from "src/models/Games"
 
 @Injectable({ providedIn: 'root' })
 export class GameService {
@@ -161,61 +162,6 @@ export class GameService {
       const random = Math.ceil(Math.random() * this.word_list.length);
       this.correct_words = this.word_list.slice(0, random)
       this.incorrect_words = this.word_list.slice(random)
-
-
-      // // short
-      // this.word_list = [
-      //   {
-      //     "id": 6,
-      //     "word_list_id": 8,
-      //     "word": "Bitte",
-      //     "translation": "Please",
-      //     "created_at": "2023-04-05T11:52:59.000000Z",
-      //     "updated_at": "2023-04-05T11:52:59.000000Z"
-      //   },
-      //   {
-      //     "id": 7,
-      //     "word_list_id": 8,
-      //     "word": "Danke",
-      //     "translation": "Thanks, Thank you",
-      //     "created_at": "2023-04-05T11:52:59.000000Z",
-      //     "updated_at": "2023-04-05T11:52:59.000000Z"
-      //   },
-      //   {
-      //     "id": 8,
-      //     "word_list_id": 8,
-      //     "word": "Entschuldigung",
-      //     "translation": "Sorry",
-      //     "created_at": "2023-04-05T11:52:59.000000Z",
-      //     "updated_at": "2023-04-05T11:52:59.000000Z"
-      //   },
-      //   {
-      //     "id": 9,
-      //     "word_list_id": 8,
-      //     "word": "Gesundheit",
-      //     "translation": "Bless you",
-      //     "created_at": "2023-04-05T11:52:59.000000Z",
-      //     "updated_at": "2023-04-05T11:52:59.000000Z"
-      //   },
-      //   {
-      //     "id": 10,
-      //     "word_list_id": 8,
-      //     "word": "Ja",
-      //     "translation": "Yes",
-      //     "created_at": "2023-04-05T11:52:59.000000Z",
-      //     "updated_at": "2023-04-05T11:52:59.000000Z"
-      //   },
-      //   {
-      //     "id": 11,
-      //     "word_list_id": 8,
-      //     "word": "Nein",
-      //     "translation": "No",
-      //     "created_at": "2023-04-05T11:52:59.000000Z",
-      //     "updated_at": "2023-04-05T11:52:59.000000Z"
-      //   },
-      // ]
-
-
     }
   }
 
@@ -227,7 +173,7 @@ export class GameService {
     this.word_list = word_list_list
   }
 
-  start_game(game: string) {
+  start_game(game: AvailableGames ) {
     this.incorrect_words = []
     this.correct_words = []
     this.router.navigate(["/" + game]);

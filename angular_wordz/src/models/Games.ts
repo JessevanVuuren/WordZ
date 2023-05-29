@@ -1,0 +1,1 @@
+export type AvailableGames = "link-words" | "spelling"

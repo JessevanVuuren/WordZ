@@ -3,11 +3,18 @@
     <div class="flag_img">
       <img src="https://flagcdn.com/w80/{{ item.to_language.toLowerCase() }}.png" alt="">
     </div>
-    <div class="info_holder">
+    <div class="info_holder truncate_parent">
       <div class="item_name">{{ item.name }}</div>
-      <div class="item_description">{{ item.description }}</div>
+      <div #element class="item_description truncate_child">{{ item.description }}</div>
     </div>
   </div>
-  <div class="item item_date">{{ item.created_at | datum }}</div>
-  <div class="item item_amount">{{ item.amount }}</div>
+  <div class="pc_ready item item_date">{{ item.created_at | datum }}</div>
+  <div class="pc_ready item item_amount">{{ item.amount }}</div>
+
+  <div class="mobile_ready">
+    <div class="mobile_info_list">
+      <div class="item item_date">{{ item.created_at | datum }}</div>
+      <div class="item item_amount">words: {{ item.amount }}</div>
+    </div>
+  </div>
 </div>
